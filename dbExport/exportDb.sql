@@ -33,7 +33,7 @@ CREATE TABLE `photo` (
   `isPublic` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +42,7 @@ CREATE TABLE `photo` (
 
 LOCK TABLES `photo` WRITE;
 /*!40000 ALTER TABLE `photo` DISABLE KEYS */;
-INSERT INTO `photo` VALUES (1,'5e85f7243c427.png','Impasse Garenne, 63130 Royat, France','2020-04-02 14:31:00','admin admin',0),(2,'5f0c71cc204a9.png','test','2020-07-13 14:38:04','Kroukoune Nathan',1),(3,'5f0c71dc84dcf.png','test','2020-07-13 14:38:20','Kroukoune Nathan',0),(4,'5f0c71e0a715b.png','test','2020-07-13 14:38:24','Kroukoune Nathan',1),(5,'5f0c722b2d6d0.png','test','2020-07-13 14:39:39','Kroukoune Nathan',1);
+INSERT INTO `photo` VALUES (1,'5e85f7243c427.png','Impasse Garenne, 63130 Royat, France','2020-04-02 14:31:00','admin admin',0),(3,'5f0c71dc84dcf.png','test','2020-07-13 14:38:20','Pheicas',0),(5,'5f0c722b2d6d0.png','test','2020-07-13 14:39:39','Pheicas',1),(6,'5f0c85bc10e2b.png','test','2020-07-13 16:03:08','Pheicas',1);
 /*!40000 ALTER TABLE `photo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -87,4 +87,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-07-13 17:48:50
+-- Dump completed on 2020-07-13 19:12:53
