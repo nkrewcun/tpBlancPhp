@@ -27,6 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="form-group">
                 <label for="image">Ajouter une image</label>
                 <input type="file" class="form-control-file" id="image" name="image">
+                <label for="lieu_publi">Lieu</label>
+                <input type="text" class="form-control" id="lieu_publi" name="lieu_publi"/>
             </div>
             <div class="form-group form-check">
                 <input type="checkbox" class="form-check-input" id="isPublic" name="isPublic">

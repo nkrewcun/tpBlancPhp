@@ -35,7 +35,7 @@ function addImageToDb($pdo, $fileName)
 VALUES(:file_name, :lieu_publi, :date_publication, :nom_prenom_utilisateur, :isPublic)');
     $query->execute([
         'file_name' => $fileName,
-        'lieu_publi' => 'test',
+        'lieu_publi' => empty($_POST['lieu_publi']) ? 'Non renseigné' : $_POST['lieu_publi'],
         'date_publication' => date("Y-m-d H:i:s"),
         'nom_prenom_utilisateur' => $_SESSION['user']['pseudo'],
         'isPublic' => isset($_POST['isPublic']) ? 1 : 0
