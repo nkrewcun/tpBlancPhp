@@ -1,13 +1,15 @@
--- MySQL dump 10.13  Distrib 8.0.19, for macos10.15 (x86_64)
+CREATE DATABASE  IF NOT EXISTS `tpblanc` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `tpblanc`;
+-- MySQL dump 10.13  Distrib 8.0.18, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: instaBooster
+-- Host: localhost    Database: tpblanc
 -- ------------------------------------------------------
--- Server version	5.7.29
+-- Server version	5.5.5-10.4.10-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8mb4 */;
+/*!50503 SET NAMES utf8 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -28,16 +30,21 @@ CREATE TABLE `photo` (
   `lieu_publi` varchar(45) NOT NULL,
   `date_publication` datetime NOT NULL,
   `nom_prenom_utilisateur` varchar(45) NOT NULL,
+  `isPublic` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `photo`
 --
 
-INSERT INTO `photo` (`id`, `file_name`, `lieu_publi`, `date_publication`, `nom_prenom_utilisateur`) VALUES (1,'5e85f7243c427.png','Impasse Garenne, 63130 Royat, France','2020-04-02 14:31:00','admin admin');
+LOCK TABLES `photo` WRITE;
+/*!40000 ALTER TABLE `photo` DISABLE KEYS */;
+INSERT INTO `photo` VALUES (1,'5e85f7243c427.png','Impasse Garenne, 63130 Royat, France','2020-04-02 14:31:00','admin admin',0),(2,'5f0c71cc204a9.png','test','2020-07-13 14:38:04','Kroukoune Nathan',1),(3,'5f0c71dc84dcf.png','test','2020-07-13 14:38:20','Kroukoune Nathan',0),(4,'5f0c71e0a715b.png','test','2020-07-13 14:38:24','Kroukoune Nathan',1),(5,'5f0c722b2d6d0.png','test','2020-07-13 14:39:39','Kroukoune Nathan',1);
+/*!40000 ALTER TABLE `photo` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `utilisateur`
@@ -58,14 +65,18 @@ CREATE TABLE `utilisateur` (
   UNIQUE KEY `pseudo_UNIQUE` (`pseudo`),
   UNIQUE KEY `email_UNIQUE` (`email`),
   UNIQUE KEY `password_UNIQUE` (`password`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `utilisateur`
 --
 
-INSERT INTO `utilisateur` (`id`, `pseudo`, `email`, `prenom`, `nom`, `password`) VALUES (1,'aurelien','aureliendelorme1@gmail.com','Aurélien','Delorme','43a733596dbef28dd14b0ff386948c36'),(13,'tot','toto@toto.fr','toto','toto','f71dbe52628a3f83a77ab494817525c6'),(14,'ezfdzef','qsdfe1@gmail.com','sdfdsf','qsdfdsf','20838a8df7cc0babd745c7af4b7d94e2'),(15,'admin','admin@admin.admin','admin','admin','21232f297a57a5a743894a0e4a801fc3');
+LOCK TABLES `utilisateur` WRITE;
+/*!40000 ALTER TABLE `utilisateur` DISABLE KEYS */;
+INSERT INTO `utilisateur` VALUES (1,'aurelien','aureliendelorme1@gmail.com','Aurélien','Delorme','43a733596dbef28dd14b0ff386948c36'),(13,'tot','toto@toto.fr','toto','toto','f71dbe52628a3f83a77ab494817525c6'),(14,'ezfdzef','qsdfe1@gmail.com','sdfdsf','qsdfdsf','20838a8df7cc0babd745c7af4b7d94e2'),(15,'admin','admin@admin.admin','admin','admin','21232f297a57a5a743894a0e4a801fc3'),(16,'Pheicas','kjsgrsks@kjrgkd.com','Nathan','Kroukoune','e10adc3949ba59abbe56e057f20f883e');
+/*!40000 ALTER TABLE `utilisateur` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -76,4 +87,4 @@ INSERT INTO `utilisateur` (`id`, `pseudo`, `email`, `prenom`, `nom`, `password`)
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-07-12 10:37:23
+-- Dump completed on 2020-07-13 17:48:50
