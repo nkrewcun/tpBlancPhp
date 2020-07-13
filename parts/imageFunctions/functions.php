@@ -29,7 +29,7 @@ function getPhotoById($pdo, $id) {
     return $query;
 }
 
-function addImageToDb($pdo, $fileName, $isPublic)
+function addImageToDb($pdo, $fileName)
 {
     $query = $pdo->prepare('INSERT INTO photo(file_name, lieu_publi, date_publication, nom_prenom_utilisateur, isPublic)
 VALUES(:file_name, :lieu_publi, :date_publication, :nom_prenom_utilisateur, :isPublic)');
@@ -38,7 +38,7 @@ VALUES(:file_name, :lieu_publi, :date_publication, :nom_prenom_utilisateur, :isP
         'lieu_publi' => 'test',
         'date_publication' => date("Y-m-d H:i:s"),
         'nom_prenom_utilisateur' => $_SESSION['user']['pseudo'],
-        'isPublic' => $isPublic ? 1 : 0
+        'isPublic' => isset($_POST['isPublic']) ? 1 : 0
     ]);
 }
 

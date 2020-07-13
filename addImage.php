@@ -4,13 +4,16 @@ require_once 'parts/includes.php';
 
 $errors = [];
 
+if(!isset($_SESSION['user']) || empty($_SESSION['user'])) {
+    header('Location: login.php');
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $errors = validateImageForm();
     if (count($errors) === 0) {
         $fileName = uniqid() . '.' . pathinfo($_FILES['image']['name'])['extension'];
         move_uploaded_file($_FILES['image']['tmp_name'], 'assets/images/' . $fileName);
-        isset($_POST['isPublic']) ? $isPublic = true : $isPublic = false;
-        addImageToDb($pdo, $fileName, $isPublic);
+        addImageToDb($pdo, $fileName);
         header('Location: dashboard.php');
     }
 }
