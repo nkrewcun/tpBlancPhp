@@ -71,7 +71,7 @@ function validateImageForm()
 
 function showImages($photos)
 {
-    echo '<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">';
+    echo '<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 mx-0 mx-md-2 mx-lg-5">';
     foreach ($photos->fetchall() as $photo) {
         echo '
             <div class="col mb-4">
