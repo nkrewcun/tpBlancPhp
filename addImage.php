@@ -38,3 +38,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ?>
     </form>
 </div>
+
+<?php
+require_once 'parts/footer.php';

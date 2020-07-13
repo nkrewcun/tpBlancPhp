@@ -7,13 +7,8 @@ if(!isset($_SESSION['user']) || empty($_SESSION['user'])) {
 }
 
 $photos = [];
-$photos = getMyPhotos($pdo);
+$photos = getUserPhotos($pdo);
 
-?>
+showImages($photos);
 
-<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
-    <?php showImages($photos);
-    ?>
-</div>
-
-?>
+require_once 'parts/footer.php';
